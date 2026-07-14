@@ -16,6 +16,6 @@
     "tar": "^6.1.11"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.21.1"
+    "@vercel/ncc": "^0.38.3"
   }
 }
