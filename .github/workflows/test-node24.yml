@@ -1,7 +1,7 @@
 name: Test Node 24 Upgrade
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   test:
