@@ -1,0 +1,33 @@
+name: Test Node 24 Upgrade
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Verify versions
+        run: |
+          node --version
+          npm --version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test tar compress
+        run: |
+          node test.js
+          test -f yolo.tar.gz && echo "✓ yolo.tar.gz created"
+
+      - name: Build action entry
+        run: |
+          npm run build
+          test -f index.js && echo "✓ index.js built"
